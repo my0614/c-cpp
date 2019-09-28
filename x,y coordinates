@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+
+struct Point
+{
+	int xpos;
+	int ypos;
+};
+
+Point& PntAdder(const Point& p1, const Point& p2)
+{
+	return *(new Point{ p1.xpos + p2.xpos , p1.ypos + p2.ypos });
+}
+
+int main()
+{
+	Point* p1 = new Point{ 10,20 };
+	Point* p2 = new Point{ 40, 60 };
+	Point& result = PntAdder(*p1, *p2);
+	cout << result.xpos << " " << result.ypos << endl;
+
+	delete &result;
+	delete p1;
+	delete p2;
+}
