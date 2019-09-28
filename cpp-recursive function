@@ -1,0 +1,20 @@
+#include <iostream>
+
+using namespace std;
+
+
+int fact(int n)
+{
+	if (n == 1)
+		return 1;
+	else
+		return (n * fact(n - 1));
+}
+int main()
+{
+	int n,a ;
+	cin >> n;
+	a =  + fact(n);
+	cout << " 팩토리얼 = " <<a << endl;
+	return 0;
+}
