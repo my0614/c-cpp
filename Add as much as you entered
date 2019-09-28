@@ -1,0 +1,18 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	int n,a,b,i;
+	cin >> n;
+	int  h[100] = { 0 };
+	for (i = 0; i < n; i++)
+	{
+		cin >> a>>b;
+			h[i] = a + b;
+	}
+	for (i = 0; i < n; i++)
+		cout << h[i] << endl;
+
+	return 0;
+}
