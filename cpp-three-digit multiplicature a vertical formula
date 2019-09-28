@@ -1,0 +1,22 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	int a,b,g,h,t;
+	cin >> a >> b;
+	g = b % 100;
+	g = b % 10;
+	cout <<  g * a<< endl;
+	h = b % 100;
+	h = h / 10;
+	cout <<  h  * a<< endl;
+	t = b / 100;
+	cout << a*t << endl;
+	cout << a * b;
+
+	
+	
+	return 0;
+}
