@@ -1,0 +1,22 @@
+#include <stdio.h>
+void test(int data[])
+{
+	int i;
+	for (i = 0; i < 5; i++)
+	{
+		data[i] = data[i] * 2;
+	}
+}
+int main()
+{
+	int i;
+	int my[5] = { 1,2,3,4,5 };
+	test(my);
+
+	for (i = 0; i < 5; i++)
+	{
+		printf("%d\t", my[i]);
+	}
+
+	return 0;
+}
