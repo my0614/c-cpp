@@ -1,0 +1,14 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	char* add;
+	add = new char[100];
+	cin >> add;
+	cout << add;
+	delete[] add;
+
+	return 0;
+}
