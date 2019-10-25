@@ -1,0 +1,97 @@
+# include <stdio.h>
+#define SIZE 10
+
+int top = -1;
+int out = 0 ;
+int stack[SIZE];
+int output[SIZE*SIZE];
+
+void push(int item)
+{
+	if(top == (SIZE-1))
+	{
+		back:
+		printf("\n overflow!");
+		return;
+		goto back;
+	}
+	else
+	{
+		stack[++top] = item;
+	}
+}
+
+int pop()
+{
+	if(top == -1)
+	{ 		
+		printf("\n underflow!");
+		return 9999;
+		
+	}
+	else
+	{
+		return stack[top--];
+	}
+}
+
+void stackprint()
+{
+	int i;
+	printf("\n STACK [ ");
+	for(i =0;i<=top;i++)
+		printf("%d ",stack[i]);
+	printf("]");
+	printf("\n output : ");
+	if(output[out-1] == 9999)
+	{
+		for(i=0;i<out-1;i++)
+		printf(" %d ",output[i]);
+		--out;
+	}
+	
+	else
+	{
+		for(i=0;i<out;i++)
+		printf(" %d ",output[i]);
+	}
+	
+	
+}
+
+
+
+int main()
+{
+	int item, i;
+	printf("\t========================================================");
+	printf("\t 			스택에 원하는 값을 입력하세요.\n");
+	printf("\t			pop을 하려면 9999을 입력하시오.\n");
+	printf("\t		프로그램을 종료하려면 8888를 입력하세요.\n");
+	printf("\t========================================================");
+	
+	stackprint();
+	while(1)
+	{
+		printf("\t input:	 ");
+		scanf("%d",&item);
+		if(item != 9999 && item != 8888)
+		{
+			push(item);
+			stackprint();
+		}
+		if(item == 8888)
+			return 0;
+	
+		if(item == 9999)
+		{
+			output[out++] = pop();
+			stackprint();
+		}
+		
+	
+	
+	
+	}
+ 
+}
