@@ -1,0 +1,124 @@
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+namespace COMP_POS
+{  //enum을 사용해서 직급을 결정하기
+	enum { CLERK, SENIOR, ASSIST, MANAGER };
+	// int(pos)로 해주기 때문에 숫자로 된다.
+	void ShowPositionInfo(int pos)
+	{ // 조건에 따라 출력해주기
+		switch (pos)
+		{
+		case CLERK:
+			cout << "사원" << endl;
+			break;
+
+		case SENIOR:
+			cout << "주임" << endl;
+			break;
+
+		case ASSIST:
+			cout << "대리" << endl;
+			break;
+
+		case MANAGER:
+			cout << "과장" << endl;
+			break; 
+
+		}
+	}
+}
+/*
+class Person
+{
+private:
+	char* name;
+	int age;
+public:
+	//person 생성자 만들기
+	Person(const char* myname, int myage)
+	{
+		int len = strlen(myname) + 1;
+		// name이라는 new생성
+		name = new char[len];
+		// 이름을 myname에 복사하기
+		strcpy(name, myname);
+		age = myage;
+	}
+	void ShowPersonInfo() const
+	{// 출력하기
+		cout << "이름:" << "name" << endl;
+		cout << "" << "age" << endl;
+	}
+	~Person()
+	{
+		delete[]name;
+		cout << "called destructor" << endl;
+	}
+};
+*/
+class NameCard
+{
+private:
+	char* name;
+	char* company;
+	char* tel;
+	int grade;
+public:
+	// 생성자 (이름,회사이름,전화번호,직급)
+	NameCard(const char* myname, const char* mycompany, const char* mytel, int mygrade)
+	{
+		int len = strlen(myname) + 1;
+		name = new char[len];
+		strcpy(name, myname);
+
+		len = strlen(mycompany) + 1;
+		company = new char[len];
+		strcpy(company, mycompany);
+
+		len = strlen(mytel) + 1;
+		tel = new char[len];
+		strcpy(tel, mytel);
+
+		grade = mygrade;
+
+	}
+
+	void ShowNameCardInfo() const
+	{// 출력하기
+		cout << "이름: " << name << endl;
+		cout << "회사: " << company << endl;
+		cout << "전화번호: " << tel << endl;
+		cout << "직급: ";
+		COMP_POS::ShowPositionInfo(grade);
+		cout << endl;
+	}
+
+	// 만든 생성자 소멸해주기
+	~NameCard()
+	{
+		delete[]name;
+		delete[]company;
+		delete[]tel;
+	}
+
+};
+
+int main()
+{
+	/*
+	Person man1("Lee dong woo", 29);
+	Person man2("Jang dong gun", 50);
+	man1.ShowPersonInfo();
+	man2.ShowPersonInfo();
+	*/
+
+	NameCard manClerk("kim", "KT", "222-2222", COMP_POS::CLERK);
+	NameCard manSenior("Ahn", "LG", "111-2222", COMP_POS::SENIOR);
+	NameCard manAssist("Lee", "KB", "422-2222", COMP_POS::ASSIST);
+	manClerk.ShowNameCardInfo();
+	manSenior.ShowNameCardInfo();
+	manAssist.ShowNameCardInfo();
+	return 0;
+}
