@@ -1,0 +1,39 @@
+#include<stdio.h>
+
+
+int graph_matrix[8][8];
+char visit[2][8] = {'A','B','C','D','E','F','G','H',
+'F','F','F','F','F','F','F','F'};
+
+void dfs(int v)
+{
+	int j;
+	if(visit[1][v] == 'F')
+	{
+		
+		visit[1][v] = 'T';
+		printf("%c",visit[0][v]);
+	}
+	for(j=0;j<8;j++)
+		if(graph_matrix[v][j] == 1 && visit[1][j] == 'F')
+			dfs(j);
+		// return은 백트레킹 
+	return;
+}
+
+int main()
+{
+	
+	int i,j,n,a;
+	printf("노드의 개수 \n");
+	scanf("%d",&a);
+	printf("그래프 형태 행렬 ");
+	for(i=0;i<a;i++)
+		for(j=0;j<a;j++)
+			scanf("%d",&graph_matrix[i][j]);
+	printf("깊이우선 탐색을시작할 노드의번호를 입력하세요.\n");
+	scanf("%d",&n); 
+	dfs(n);
+	
+	return 0;
+}
