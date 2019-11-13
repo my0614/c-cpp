@@ -1,0 +1,50 @@
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+class Girl;
+
+class Boy
+{
+private:
+	int height; 
+	friend class Girl;
+
+public:
+	Boy(int h) : height(h) {}
+	void ShowYourFriendInfo(Girl &) const;
+};
+
+class Girl
+{
+private:
+	char phone[20];
+	friend class Boy;
+public:
+	Girl(const char *phoneNum)
+	{
+		strcpy(phone, phoneNum);
+	}
+	void ShowYourFriendInfo(Boy &) const;
+};
+
+
+void Boy::ShowYourFriendInfo(Girl &girl) const
+{
+	cout << "her phone number : " << girl.phone << endl;
+}
+
+void Girl::ShowYourFriendInfo(Boy& boy) const
+{
+	cout << "his height : " <<boy.height << endl;
+}
+
+
+int main()
+{
+	Boy boy(170);
+	Girl girl("010-1111-2222");
+	boy.ShowYourFriendInfo(girl);
+	girl.ShowYourFriendInfo(boy);
+	return 0;
+}
