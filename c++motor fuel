@@ -1,0 +1,57 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Car
+{
+private:
+	int gasolineGauge;
+public:
+	int GetGasGauge()
+	{
+		return gasolineGauge;
+	}
+	Car(int gas) : gasolineGauge(gas)
+	{
+		
+	}
+
+};
+
+class HybridCar : public Car
+{
+private:
+	int electricGauge;
+public:
+	int GetElecGauge() 
+	{
+		return electricGauge;
+	}
+	HybridCar(int gas,int elec) : Car(gas), electricGauge(elec) { }
+	
+};
+
+class HybridWaterCar : public HybridCar
+{
+private:
+	int waterGauge;
+public:
+	int GetWaterGauge()
+	{
+		return waterGauge;
+	}
+	HybridWaterCar(int gas, int elec, int water) : HybridCar(gas,elec), waterGauge(water) { }
+	
+	void ShowCurrentGauge()
+	{
+		cout << "잔여 가솔린 : " << GetGasGauge() << endl;
+		cout << "잔여 워터량 : " << GetElecGauge() << endl;
+		cout << "잔여 가솔린 : " << waterGauge<< endl;
+	}
+};
+
+int main()
+{
+	HybridWaterCar wCar(79, 65, 35);
+	wCar.ShowCurrentGauge();
+}
