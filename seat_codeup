@@ -1,0 +1,16 @@
+#include<stdio.h>
+
+int func(int n, int r)
+{
+	if(r == 0 || n == r) return 1;
+	return func(n-1,r) + func(n-1, r-1); 
+}
+
+int main()
+{
+	int n,r;
+	scanf("%d %d",&n,&r);
+	
+	printf("%d", func(n,r));
+	return 0;
+}
