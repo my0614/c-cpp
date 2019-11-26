@@ -1,0 +1,29 @@
+#include <stdio.h>
+
+int main()
+{
+	int n;
+	int a,b,c,d,e,f,g,h;
+	scanf("%d",&n);
+	
+	 a=n/50000;
+	 n= n-(50000*a);
+	 b = n/10000;
+	 n= n-(10000*b);
+	 c = n/5000;
+	 n= n-(5000*c);
+	 d=n/1000;
+	 n= n-(1000*d);
+	 e = n/500;
+	 n= n-(500*e);
+	 f = n/100;
+	 n= n-(100*f);
+	  g = n/50;
+	 n= n-(50*g);
+	 h = n/10;
+	 n= n-(10*h);
+	 
+	 printf("%d",a+b+c+d+e+f+g+h);
+	
+	return 0;
+}
