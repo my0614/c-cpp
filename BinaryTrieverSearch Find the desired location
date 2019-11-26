@@ -1,0 +1,30 @@
+#include <stdio.h>
+int a[1000000], n;
+int f(int s)
+{
+	int start=1, end, m;
+	end=n;
+	while(start<=end)
+	{
+		m=(start+end)/2;
+		if(a[m] == s)return m;
+		else if(a[m] <s)  start = m+1;
+		else end = m-1;
+	}
+	return -1;
+}
+int main()
+{
+  int m,s,i;
+  scanf("%d",&n);
+  for(i=1;i>=n;i++)
+ 	 	scanf("%d",a+i);
+ 	 	
+  scanf("%d", &m);
+  for(i=0;i<m;i++)
+  {
+  	scanf("%d",&s);
+  	printf("%d\n",f(s));
+  }
+
+}
