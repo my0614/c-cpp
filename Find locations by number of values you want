@@ -1,0 +1,43 @@
+#include <stdio.h>
+
+int main()
+{
+	
+	int k,i,n,j;
+	scanf("%d",&k);
+	int arr[100];
+	int add[100];
+	for(i=0;i<k;i++)
+	{
+		scanf("%d",&arr[i]);
+	}
+	printf("k : \n");
+	scanf("%d",&n);
+	
+	for(i=0;i<n;i++)
+	{
+		scanf("%d",&add[i]);
+	}
+
+	for(j=0;j<n;j++)
+	{
+		for(i=0;i<k;i++)
+	{
+		if(arr[i] == add[j])
+		{
+			printf("%d ",i+1);
+			break;
+		}
+				
+			
+	}
+		printf("-1");
+		break;
+	}
+	
+
+
+	
+	
+	return 0;
+}
