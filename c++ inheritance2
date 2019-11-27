@@ -1,0 +1,55 @@
+#include <iostream>
+#include<algorithm>
+using namespace std;
+// 베이스 함수 생성
+class MyFriendInfo
+{
+private:
+	char *name;
+	int age;
+public:
+	MyFriendInfo( const char* name, int age) 
+		:age(age)
+	{
+		this->name = new char[strlen(name)+1];
+		strcpy(this->name, name);
+	}
+	void ShowMyFriendInfo()	
+	{
+		cout << "이름 :" <<name << endl;
+		cout <<"나이 :" <<age << endl;
+	}
+
+};
+// 상속 받은 함수 생성
+class MyFriendDetailInfo : public MyFriendInfo
+{
+private:
+	char *addr;
+	char *phone;
+public:
+	MyFriendDetailInfo(const char* name, int age, const char* addr,const char* phone) : MyFriendInfo(name,age) {
+		this->addr = new char[strlen(addr) + 1];
+		strcpy(this->addr, addr);
+	
+		this->phone = new char[strlen(phone) + 1];
+		strcpy(this->phone, phone);
+	}
+
+	void ShowMyFriendDetailInfo()
+	{
+		ShowMyFriendInfo();
+		cout << "지역 :" << addr << endl;
+		cout << "연락처 :" << phone << endl;
+	}
+
+};
+
+int main()
+{
+	MyFriendDetailInfo fren1("노규태", 17, "대전", "010-111-1111");
+	MyFriendDetailInfo fren2("홍자영", 19, "부산", "010-222-2222");
+	fren1.ShowMyFriendDetailInfo();
+	fren2.ShowMyFriendDetailInfo();
+	return 0;
+}
