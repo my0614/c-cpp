@@ -1,0 +1,16 @@
+#include <stdio.h>
+
+int a[10]={80,9,1,4,70,51,24,15,6};
+int func(int n)
+{
+	if(n == 9) return n;
+	return a[n]>a[func(n+1)] ? n : func(n+1);
+
+}
+
+int main()
+{
+int i;
+i=func(0);
+printf("%d %d" ,a[i],i+1);
+}
