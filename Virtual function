@@ -1,0 +1,34 @@
+#include <iostream>
+using namespace std;
+
+class Person
+{
+public :
+	virtual void showinfo() { cout << "sleep" << endl; }
+};
+
+class Student : public Person
+{
+public:
+	void showinfo() { cout << "study" << endl; }
+};
+
+class PartTimeStudent : public Student
+{
+public:
+	void showinfo() { cout << "work" << endl; }
+};
+
+int main()
+{
+
+	Person *ptr1 = new Person;
+	Person *ptr2 = new PartTimeStudent;
+	Person *ptr3 = new Student;
+	ptr1->showinfo();
+	ptr2->showinfo();
+	ptr3->showinfo();
+
+	delete ptr1; delete ptr2; delete ptr3;
+	return 0;
+}
