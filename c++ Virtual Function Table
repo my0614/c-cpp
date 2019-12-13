@@ -1,0 +1,31 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Parent
+{
+public:
+	 Parent() { cout << "생성자 호출" << endl; }
+	virtual ~Parent() { cout << "소멸자  호출" << endl; }
+
+};
+
+class child : public Parent
+{
+public:
+	child() : Parent() { cout << "child 생성자 호출" << endl; }
+	~child() { cout << "child 소멸자 호출" << endl; }
+};
+
+int main()
+{
+	cout << "---------일반 변수로 child 만들었을 때--------------" << endl;
+	{child c; }
+
+	cout << "=========== Parent 포인터로 child 가르킬때 ==============" << endl;
+	{
+		Parent* p = new child();
+		delete p;
+	}
+	return 0;
+}
