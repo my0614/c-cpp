@@ -1,0 +1,29 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Parent
+{
+public:
+	virtual void show() {cout << "parent!" << endl; }
+
+};
+
+class child : public Parent
+{
+public:
+	virtual void show() override { cout << "child!" << endl; }
+};
+void test(Parent& a) { 
+	a.show();
+} // 복사생성자
+
+int main()
+{
+	Parent p;
+	child c;
+
+	test(p);
+	test(c);
+	return 0;
+}
